@@ -146,6 +146,8 @@ services:
       context: ./Game-Front-End/
       dockerfile: ./nginx/Dockerfile
     image: game-front-end:latest
+    volumes:
+      - front-end-dev:/usr/share/nginx/html
     container_name: game-front-end
     ports:
       - "8080:80"
@@ -173,6 +175,14 @@ volumes:
       o: bind
       type: none
       device: ./User-Session/src
+      
+  front-end-dev:
+    name: front-end-dev
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./Game-Front-End/src
 
   game-db-data:
     name: game-db-data

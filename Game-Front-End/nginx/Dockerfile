@@ -13,5 +13,3 @@ RUN if [ ! -f /etc/ssl/certs/certificate.pem ]; then \
     fi
 
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
-
-COPY ./src/ /usr/share/nginx/html/

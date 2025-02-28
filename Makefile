@@ -1,10 +1,7 @@
-VOLUMES :=		/goinfre/game-core-dev \
-				/goinfre/user-session-dev \
-				/goinfre/front-end-dev \
-				/goinfre/game-db-data \
-				/goinfre/user-db-data
+VOLUMES :=		~/goinfre/storage/game-data \
+				~/goinfre/storage/user-data
 
-all: run-compose
+all: mkdir run-compose
 
 run-compose:
 	docker compose up --build
@@ -21,7 +18,7 @@ clean:
 	sudo rm -rf $(STORAGE_GAME) $(STORAGE_USER)
 
 mkdir:
-	mkdir -p $(VOLUMES)
+	sudo mkdir -p $(VOLUMES)
 
 fclean:
 	docker compose down
